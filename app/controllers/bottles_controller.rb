@@ -16,6 +16,12 @@ class BottlesController < ApplicationController
     end
   end
 
+  def search
+    # require 'rest-client'
+    resource = RestClient::Resource.new "http://services.wine.com/api/beta2/service.svc/json/catalog?search=aubert&apikey=#{ENV['WINE_KEY']}"
+    render json: {test: resource.get}
+  end
+
   def index
     bottles = @user.bottles
 

@@ -23,6 +23,11 @@ gem 'rack-cors'
 gem 'jwt'
 gem 'faker'
 
+#for third party API
+gem 'netrc'
+gem 'http-cookie'
+gem 'rest-client'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platform: :mri

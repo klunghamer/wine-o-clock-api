@@ -6,5 +6,10 @@ Rails.application.routes.draw do
       post '/login', to: 'users#login'
     end
   end
+  resources :bottles do
+    collection do
+      get 'search'
+    end
+  end
 
 end
