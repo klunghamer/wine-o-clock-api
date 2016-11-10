@@ -1,0 +1,2 @@
+  [1m[35m (265.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "wine-o-clock_development"[0m
+  [1m[35m (123.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "wine-o-clock_test"[0m
