@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_profile, only: [:update]
+  before_action :set_profile, only: [:update, :show]
 
   def set_profile
     @user = User.find(params[:id])
@@ -22,6 +22,16 @@ class UsersController < ApplicationController
     else
       render json: {status: 401, message: "unauthorized"}
     end
+  end
+
+  def index
+    users = User.all
+
+    render json: {users: users}
+  end
+
+  def show
+    render json: {user: @user}
   end
 
   def update
