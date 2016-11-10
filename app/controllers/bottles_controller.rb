@@ -18,9 +18,19 @@ class BottlesController < ApplicationController
 
   def search
     search = params[:search]
-    resource = RestClient::Resource.new "http://services.wine.com/api/beta2/service.svc/json/catalog?search=#{search}&apikey=#{ENV['WINE_KEY']}"
-    render json: {test: resource.get, search: search}
+    resource = RestClient.get "http://services.wine.com/api/beta2/service.svc/json/catalog?search=#{search}&apikey=#{ENV['WINE_KEY']}"
+    result = JSON.parse(resource.body)
+    vintage = result['Products']['List'][0]['Vintage'].to_i
+    vineyard = result['Products']['List'][0]['Vineyard']['Name']
+    type = result['Products']['List'][0]['Varietal']['WineType']['Name']
+    category = result['Products']['List'][0]['Varietal']['Name']
+    retail_price = result['Products']['List'][0]['PriceRetail'].to_i
+    appellation = result['Products']['List'][0]['Appellation']['Name']
+    region = result['Products']['List'][0]['Appellation']['Region']['Name']
+    label = result['Products']['List'][0]['Labels'][0]['Url']
+    render json: {vintage: vintage, vineyard: vineyard, type: type, category: category, retail_price: retail_price, appellation: appellation, region: region, label: label}
   end
+
 
   def index
     bottles = @user.bottles
@@ -56,6 +66,6 @@ class BottlesController < ApplicationController
   private
 
   def bottle_params
-    params.required(:bottle).permit(:vintage, :vineyard, :type, :category, :retail_price, :appellation, :region)
+    params.required(:bottle).permit(:vintage, :vineyard, :type, :category, :retail_price, :appellation, :region, :label)
   end
 end
