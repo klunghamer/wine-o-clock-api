@@ -10,7 +10,7 @@ class BottlesController < ApplicationController
     bottle.user_id = @user.id
 
     if bottle.save
-      render json: {status: 200, message: "Created a bottle"}
+      render json: {status: 200, message: "Created a bottle", bottle: bottle}
     else
       render json: {status: 422, bottle: bottle.errors}
     end
