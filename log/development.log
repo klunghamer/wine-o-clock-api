@@ -2689,3 +2689,676 @@ Processing by BottlesController#index as HTML
 Completed 200 OK in 330ms (Views: 261.8ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 09:48:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (37.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BottlesController#index as */*
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (11.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 279ms (Views: 35.0ms | ActiveRecord: 47.4ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 09:51:44 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (28.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 152ms (Views: 3.7ms | ActiveRecord: 28.9ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 09:51:44 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 21ms (Views: 14.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/bottles/results/red%20bordeaux" for ::1 at 2016-11-12 09:55:49 -0500
+Processing by BottlesController#search as HTML
+  Parameters: {"search"=>"red bordeaux"}
+Completed 200 OK in 2136ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/bottles" for ::1 at 2016-11-12 09:55:51 -0500
+Processing by BottlesController#create as HTML
+  Parameters: {"vintage"=>2007, "vineyard"=>"Colgin", "red_or_white"=>"Red Wines", "category"=>"Bordeaux Red Blends", "retail_price"=>525, "appellation"=>"Napa Valley", "region"=>"California", "label"=>"http://cache.wine.com/labels/116837m.jpg", "user_id"=>"5", "bottle"=>{"vintage"=>2007, "vineyard"=>"Colgin", "red_or_white"=>"Red Wines", "category"=>"Bordeaux Red Blends", "retail_price"=>525, "appellation"=>"Napa Valley", "region"=>"California", "label"=>"http://cache.wine.com/labels/116837m.jpg"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (19.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (163.0ms)[0m  [1m[32mINSERT INTO "bottles" ("vintage", "vineyard", "red_or_white", "category", "retail_price", "appellation", "region", "user_id", "created_at", "updated_at", "label") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["vintage", 2007], ["vineyard", "Colgin"], ["red_or_white", "Red Wines"], ["category", "Bordeaux Red Blends"], ["retail_price", 525], ["appellation", "Napa Valley"], ["region", "California"], ["user_id", 5], ["created_at", 2016-11-12 14:55:51 UTC], ["updated_at", 2016-11-12 14:55:51 UTC], ["label", "http://cache.wine.com/labels/116837m.jpg"]]
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 231ms (Views: 2.9ms | ActiveRecord: 200.9ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 09:56:00 -0500
+Processing by BottlesController#index as */*
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 09:58:39 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 99ms (Views: 6.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 09:58:39 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (9.3ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 66ms (Views: 40.0ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 09:59:26 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 09:59:26 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 43ms (Views: 36.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:00:24 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 80ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:00:24 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.5ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 29ms (Views: 22.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:03:19 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 114ms (Views: 18.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:03:19 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 62ms (Views: 43.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:04:31 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:04:31 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 43ms (Views: 29.2ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:05:44 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 100ms (Views: 9.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:05:44 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 89ms (Views: 71.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:06:09 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 76ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:06:09 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:08:21 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 5.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:08:21 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 23ms (Views: 14.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:34:16 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (27.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 204ms (Views: 11.9ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:34:17 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (36.1ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 193ms (Views: 149.3ms | ActiveRecord: 36.6ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:35:43 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 78ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:35:43 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:40:41 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 96ms (Views: 3.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:40:41 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 25ms (Views: 15.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:48:06 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 99ms (Views: 5.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:48:06 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 22ms (Views: 12.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/bottles/results/Sauvignon%20Blanc%202004" for ::1 at 2016-11-12 10:48:21 -0500
+Processing by BottlesController#search as HTML
+  Parameters: {"search"=>"Sauvignon Blanc 2004"}
+Completed 200 OK in 1309ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/bottles" for ::1 at 2016-11-12 10:48:23 -0500
+Processing by BottlesController#create as HTML
+  Parameters: {"vintage"=>2004, "vineyard"=>"Crocker & Starr", "red_or_white"=>"White Wines", "category"=>"Sauvignon Blanc", "retail_price"=>23, "appellation"=>"Napa Valley", "region"=>"California", "label"=>"http://cache.wine.com/labels/85818m.jpg", "user_id"=>"5", "bottle"=>{"vintage"=>2004, "vineyard"=>"Crocker & Starr", "red_or_white"=>"White Wines", "category"=>"Sauvignon Blanc", "retail_price"=>23, "appellation"=>"Napa Valley", "region"=>"California", "label"=>"http://cache.wine.com/labels/85818m.jpg"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (63.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (272.9ms)[0m  [1m[32mINSERT INTO "bottles" ("vintage", "vineyard", "red_or_white", "category", "retail_price", "appellation", "region", "user_id", "created_at", "updated_at", "label") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["vintage", 2004], ["vineyard", "Crocker & Starr"], ["red_or_white", "White Wines"], ["category", "Sauvignon Blanc"], ["retail_price", 23], ["appellation", "Napa Valley"], ["region", "California"], ["user_id", 5], ["created_at", 2016-11-12 15:48:23 UTC], ["updated_at", 2016-11-12 15:48:23 UTC], ["label", "http://cache.wine.com/labels/85818m.jpg"]]
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 364ms (Views: 0.9ms | ActiveRecord: 347.1ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:51:16 -0500
+Processing by BottlesController#index as */*
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:52:19 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 80ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:52:19 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.5ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/bottles/results/Pinot%20Noir%202008" for ::1 at 2016-11-12 10:52:31 -0500
+Processing by BottlesController#search as HTML
+  Parameters: {"search"=>"Pinot Noir 2008"}
+Completed 200 OK in 1196ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/bottles" for ::1 at 2016-11-12 10:52:32 -0500
+Processing by BottlesController#create as HTML
+  Parameters: {"vintage"=>2008, "vineyard"=>"Williams Selyem Winery ", "red_or_white"=>"Red Wines", "category"=>"Pinot Noir", "retail_price"=>129, "appellation"=>"Sonoma County", "region"=>"California", "label"=>"http://cache.wine.com/labels/125292m.jpg", "user_id"=>"5", "bottle"=>{"vintage"=>2008, "vineyard"=>"Williams Selyem Winery ", "red_or_white"=>"Red Wines", "category"=>"Pinot Noir", "retail_price"=>129, "appellation"=>"Sonoma County", "region"=>"California", "label"=>"http://cache.wine.com/labels/125292m.jpg"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (45.9ms)[0m  [1m[32mINSERT INTO "bottles" ("vintage", "vineyard", "red_or_white", "category", "retail_price", "appellation", "region", "user_id", "created_at", "updated_at", "label") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["vintage", 2008], ["vineyard", "Williams Selyem Winery "], ["red_or_white", "Red Wines"], ["category", "Pinot Noir"], ["retail_price", 129], ["appellation", "Sonoma County"], ["region", "California"], ["user_id", 5], ["created_at", 2016-11-12 15:52:32 UTC], ["updated_at", 2016-11-12 15:52:32 UTC], ["label", "http://cache.wine.com/labels/125292m.jpg"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 61ms (Views: 0.8ms | ActiveRecord: 47.6ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 10:54:12 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 10:54:12 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.9ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 18ms (Views: 13.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/bottles/results/Chenin%20Blanc%202011" for ::1 at 2016-11-12 10:54:28 -0500
+Processing by BottlesController#search as HTML
+  Parameters: {"search"=>"Chenin Blanc 2011"}
+Completed 200 OK in 1187ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/bottles" for ::1 at 2016-11-12 10:54:30 -0500
+Processing by BottlesController#create as HTML
+  Parameters: {"vintage"=>2011, "vineyard"=>"Badenhorst", "red_or_white"=>"White Wines", "category"=>"Chenin Blanc", "retail_price"=>14, "appellation"=>"South Africa", "region"=>"South Africa", "label"=>"http://cache.wine.com/labels/117150m.jpg", "user_id"=>"5", "bottle"=>{"vintage"=>2011, "vineyard"=>"Badenhorst", "red_or_white"=>"White Wines", "category"=>"Chenin Blanc", "retail_price"=>14, "appellation"=>"South Africa", "region"=>"South Africa", "label"=>"http://cache.wine.com/labels/117150m.jpg"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "bottles" ("vintage", "vineyard", "red_or_white", "category", "retail_price", "appellation", "region", "user_id", "created_at", "updated_at", "label") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["vintage", 2011], ["vineyard", "Badenhorst"], ["red_or_white", "White Wines"], ["category", "Chenin Blanc"], ["retail_price", 14], ["appellation", "South Africa"], ["region", "South Africa"], ["user_id", 5], ["created_at", 2016-11-12 15:54:30 UTC], ["updated_at", 2016-11-12 15:54:30 UTC], ["label", "http://cache.wine.com/labels/117150m.jpg"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:02:12 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 91ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:02:12 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.0ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 40ms (Views: 24.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:03:18 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:03:18 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:05:50 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:05:51 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 29ms (Views: 20.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:06:23 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:06:24 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:06:52 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:06:53 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.5ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 22ms (Views: 16.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:07:41 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 76ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:07:41 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.5ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 24ms (Views: 17.1ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:12:36 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 4.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:12:36 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 31ms (Views: 21.1ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:15:04 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:15:04 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 37ms (Views: 26.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:19:13 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 96ms (Views: 4.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:19:13 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.9ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 86ms (Views: 69.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:20:04 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:20:04 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.0ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:33:25 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 9.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:33:25 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (2.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 38ms (Views: 18.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:36:34 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 97ms (Views: 3.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:36:35 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 42ms (Views: 22.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:37:33 -0500
+Processing by BottlesController#index as */*
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:40:16 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 82ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:40:16 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 24ms (Views: 15.9ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/5/bottles/8" for ::1 at 2016-11-12 11:41:13 -0500
+Processing by BottlesController#show as */*
+  Parameters: {"user_id"=>"5", "id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (216.4ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 223ms (Views: 1.0ms | ActiveRecord: 216.7ms)
+
+
+Started DELETE "/users/5/bottles/8" for ::1 at 2016-11-12 11:41:24 -0500
+Processing by BottlesController#destroy as */*
+  Parameters: {"user"=>{"first_name"=>"test", "email"=>"test@google.com", "password"=>"[FILTERED]"}, "user_id"=>"5", "id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (46.0ms)[0m  [1m[31mDELETE FROM "bottles" WHERE "bottles"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 65ms (Views: 0.4ms | ActiveRecord: 47.9ms)
+
+
+Started GET "/users/5/bottles/8" for ::1 at 2016-11-12 11:41:29 -0500
+Processing by BottlesController#show as */*
+  Parameters: {"user_id"=>"5", "id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (32.8ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 8], ["LIMIT", 1]]
+Completed 404 Not Found in 38ms (ActiveRecord: 33.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Bottle with 'id'=8 [WHERE "bottles"."user_id" = $1]):
+  
+app/controllers/bottles_controller.rb:42:in `show'
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (134.9ms)
+Started POST "/users/login" for ::1 at 2016-11-12 11:42:17 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 3.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:42:17 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (5.2ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 40ms (Views: 24.3ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:46:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 207ms (Views: 1.0ms | ActiveRecord: 79.1ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:46:25 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.1ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 131ms (Views: 36.5ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:55:02 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 4.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:55:02 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 40ms (Views: 26.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:57:58 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:57:58 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 40ms (Views: 33.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 11:58:51 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 87ms (Views: 4.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 11:58:51 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.0ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 55ms (Views: 48.9ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/users/5/bottles/7" for ::1 at 2016-11-12 11:59:03 -0500
+Processing by BottlesController#destroy as HTML
+  Parameters: {"user_id"=>"5", "id"=>"7"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.2ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (71.7ms)[0m  [1m[31mDELETE FROM "bottles" WHERE "bottles"."id" = $1[0m  [["id", 7]]
+  [1m[35m (23.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 112ms (Views: 0.2ms | ActiveRecord: 97.8ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-12 12:00:16 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 81ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-12 12:00:16 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 38ms (Views: 32.5ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/users/5/bottles/9" for ::1 at 2016-11-12 12:00:25 -0500
+Processing by BottlesController#destroy as HTML
+  Parameters: {"user_id"=>"5", "id"=>"9"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (37.0ms)[0m  [1m[31mDELETE FROM "bottles" WHERE "bottles"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 46ms (Views: 0.2ms | ActiveRecord: 39.3ms)
+
+
