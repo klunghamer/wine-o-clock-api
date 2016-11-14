@@ -5568,3 +5568,725 @@ Command :: PATH=/usr/local/bin/identify:$PATH; file -b --mime '/var/folders/1f/q
 Completed 200 OK in 4294ms (Views: 0.9ms | ActiveRecord: 2.7ms)
 
 
+Started GET "/users/5/bottles/20" for ::1 at 2016-11-14 13:34:21 -0500
+Processing by BottlesController#show as */*
+  Parameters: {"user_id"=>"5", "id"=>"20"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 20], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Bottle with 'id'=20 [WHERE "bottles"."user_id" = $1]):
+  
+app/controllers/bottles_controller.rb:42:in `show'
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.7ms)
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 13:34:34 -0500
+Processing by BottlesController#index as */*
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/5/bottles/3" for ::1 at 2016-11-14 13:34:58 -0500
+Processing by BottlesController#show as */*
+  Parameters: {"user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 13:37:32 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 13:37:32 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 18ms (Views: 13.5ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/users/5/bottles/3" for ::1 at 2016-11-14 13:45:17 -0500
+Processing by BottlesController#update as HTML
+  Parameters: {"bottle"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fcf2bdffd98 @tempfile=#<Tempfile:/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/RackMultipart20161114-6249-pxfd9l.png>, @original_filename="wanderluster.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"bottle[image]\"; filename=\"wanderluster.png\"\r\nContent-Type: image/png\r\n">}, "user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[AWS S3 200 0.342803 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/original/profpic.jpg")  
+
+[AWS S3 200 0.074399 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/large/profpic.jpg")  
+
+[AWS S3 200 0.052223 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/medium/profpic.jpg")  
+
+[AWS S3 200 0.058505 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/thumb/profpic.jpg")  
+
+[AWS S3 200 0.053425 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/square/profpic.jpg")  
+
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' -auto-orient -resize "600x600>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/c6edf1cbbfbc05885fd4e2265a22204420161114-6249-1ac364o'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' -auto-orient -resize "300x300>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/c6edf1cbbfbc05885fd4e2265a22204420161114-6249-5b60rp'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' -auto-orient -resize "200x200>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/c6edf1cbbfbc05885fd4e2265a22204420161114-6249-1erz8rn'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1vcr1n.png[0]' -auto-orient -resize "x200" -crop "200x200+28+0" +repage '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/c6edf1cbbfbc05885fd4e2265a22204420161114-6249-n60ry1'
+Command :: PATH=/usr/local/bin/identify:$PATH; file -b --mime '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/f492b213437d188ecf77712646c4657320161114-6249-1x5kz4s.png'
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "bottles" SET "image_file_name" = $1, "image_content_type" = $2, "image_file_size" = $3, "image_updated_at" = $4, "updated_at" = $5 WHERE "bottles"."id" = $6[0m  [["image_file_name", "wanderluster.png"], ["image_content_type", "image/png"], ["image_file_size", 379243], ["image_updated_at", 2016-11-14 18:45:18 UTC], ["updated_at", 2016-11-14 18:45:19 UTC], ["id", 3]]
+[paperclip] deleting /bottles/images/000/000/003/original/profpic.jpg
+[AWS S3 204 0.055645 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/original/profpic.jpg")  
+
+[paperclip] deleting /bottles/images/000/000/003/large/profpic.jpg
+[AWS S3 204 0.059212 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/large/profpic.jpg")  
+
+[paperclip] deleting /bottles/images/000/000/003/medium/profpic.jpg
+[AWS S3 204 0.05621 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/medium/profpic.jpg")  
+
+[paperclip] deleting /bottles/images/000/000/003/thumb/profpic.jpg
+[AWS S3 204 0.070346 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/thumb/profpic.jpg")  
+
+[paperclip] deleting /bottles/images/000/000/003/square/profpic.jpg
+[AWS S3 204 0.284722 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/square/profpic.jpg")  
+
+[paperclip] saving /bottles/images/000/000/003/original/wanderluster.png
+[AWS S3 200 2.215657 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>379243,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: wanderluster.png,:key=>"bottles/images/000/000/003/original/wanderluster.png")  
+
+[paperclip] saving /bottles/images/000/000/003/large/wanderluster.png
+[AWS S3 200 0.731487 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>117823,:content_type=>"image/png",:data=>Paperclip::FileAdapter: c6edf1cbbfbc05885fd4e2265a22204420161114-6249-1ac364o,:key=>"bottles/images/000/000/003/large/wanderluster.png")  
+
+[paperclip] saving /bottles/images/000/000/003/medium/wanderluster.png
+[AWS S3 200 0.319157 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>40767,:content_type=>"image/png",:data=>Paperclip::FileAdapter: c6edf1cbbfbc05885fd4e2265a22204420161114-6249-5b60rp,:key=>"bottles/images/000/000/003/medium/wanderluster.png")  
+
+[paperclip] saving /bottles/images/000/000/003/thumb/wanderluster.png
+[AWS S3 200 0.281929 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>25067,:content_type=>"image/png",:data=>Paperclip::FileAdapter: c6edf1cbbfbc05885fd4e2265a22204420161114-6249-1erz8rn,:key=>"bottles/images/000/000/003/thumb/wanderluster.png")  
+
+[paperclip] saving /bottles/images/000/000/003/square/wanderluster.png
+[AWS S3 200 0.239153 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>31466,:content_type=>"image/png",:data=>Paperclip::FileAdapter: c6edf1cbbfbc05885fd4e2265a22204420161114-6249-n60ry1,:key=>"bottles/images/000/000/003/square/wanderluster.png")  
+
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6255ms (Views: 1.0ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 13:55:51 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (47.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 354ms (Views: 1.8ms | ActiveRecord: 190.5ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 13:55:52 -0500
+  
+SyntaxError (/Users/kellylunghamer/Desktop/wine-o-clock-api/app/controllers/bottles_controller.rb:38: syntax error, unexpected '}'
+/Users/kellylunghamer/Desktop/wine-o-clock-api/app/controllers/bottles_controller.rb:71: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/bottles_controller.rb:38: syntax error, unexpected '}'
+app/controllers/bottles_controller.rb:71: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.1ms)
+Started POST "/users/login" for ::1 at 2016-11-14 13:56:28 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 90ms (Views: 0.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 13:56:28 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (16.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Bottle> at /Users/kellylunghamer/Desktop/wine-o-clock-api/app/models/bottle.rb:3)
+  [1m[36mBottle Load (37.2ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 107ms (Views: 23.8ms | ActiveRecord: 61.0ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:10:06 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 1.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:10:06 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Bottle> at /Users/kellylunghamer/Desktop/wine-o-clock-api/app/models/bottle.rb:3)
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 50ms (Views: 27.3ms | ActiveRecord: 7.6ms)
+
+
+Started PATCH "/users/5/bottles/21" for ::1 at 2016-11-14 14:10:21 -0500
+Processing by BottlesController#update as HTML
+  Parameters: {"bottle"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007fcf2eecd808 @tempfile=#<Tempfile:/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/RackMultipart20161114-6249-16pq22j.png>, @original_filename="spacedoutpic.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"bottle[image]\"; filename=\"spacedoutpic.png\"\r\nContent-Type: image/png\r\n">}, "user_id"=>"5", "id"=>"21"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (17.4ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 21], ["LIMIT", 1]]
+  [1m[35m (39.6ms)[0m  [1m[35mBEGIN[0m
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' -auto-orient -resize "600x600>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/18da4c0d9d371bf49ff679faf3fa01da20161114-6249-1o3df0b'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' -auto-orient -resize "300x300>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/18da4c0d9d371bf49ff679faf3fa01da20161114-6249-mgeqf'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' -auto-orient -resize "200x200>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/18da4c0d9d371bf49ff679faf3fa01da20161114-6249-1v23gjp'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-z9cq7y.png[0]' -auto-orient -resize "x200" -crop "200x200+46+0" +repage '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/18da4c0d9d371bf49ff679faf3fa01da20161114-6249-1myhmgu'
+Command :: PATH=/usr/local/bin/identify:$PATH; file -b --mime '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/8568efa24f707db85fea76bee4cd662820161114-6249-y7nx1l.png'
+  [1m[35mSQL (71.4ms)[0m  [1m[33mUPDATE "bottles" SET "image_file_name" = $1, "image_content_type" = $2, "image_file_size" = $3, "image_updated_at" = $4, "updated_at" = $5 WHERE "bottles"."id" = $6[0m  [["image_file_name", "spacedoutpic.png"], ["image_content_type", "image/png"], ["image_file_size", 60125], ["image_updated_at", 2016-11-14 19:10:21 UTC], ["updated_at", 2016-11-14 19:10:23 UTC], ["id", 21]]
+[paperclip] saving /bottles/images/000/000/021/original/spacedoutpic.png
+[AWS S3 200 1.179842 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>60125,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: spacedoutpic.png,:key=>"bottles/images/000/000/021/original/spacedoutpic.png")  
+
+[paperclip] saving /bottles/images/000/000/021/large/spacedoutpic.png
+[AWS S3 200 0.305193 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>43845,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 18da4c0d9d371bf49ff679faf3fa01da20161114-6249-1o3df0b,:key=>"bottles/images/000/000/021/large/spacedoutpic.png")  
+
+[paperclip] saving /bottles/images/000/000/021/medium/spacedoutpic.png
+[AWS S3 200 0.285589 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>20595,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 18da4c0d9d371bf49ff679faf3fa01da20161114-6249-mgeqf,:key=>"bottles/images/000/000/021/medium/spacedoutpic.png")  
+
+[paperclip] saving /bottles/images/000/000/021/thumb/spacedoutpic.png
+[AWS S3 200 0.233073 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>14253,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 18da4c0d9d371bf49ff679faf3fa01da20161114-6249-1v23gjp,:key=>"bottles/images/000/000/021/thumb/spacedoutpic.png")  
+
+[paperclip] saving /bottles/images/000/000/021/square/spacedoutpic.png
+[AWS S3 200 0.206161 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>17805,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 18da4c0d9d371bf49ff679faf3fa01da20161114-6249-1myhmgu,:key=>"bottles/images/000/000/021/square/spacedoutpic.png")  
+
+  [1m[35m (27.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 3919ms (Views: 1.0ms | ActiveRecord: 156.0ms)
+
+
+Started GET "/users/5/bottles/" for ::1 at 2016-11-14 14:12:17 -0500
+Processing by BottlesController#index as */*
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 50ms (Views: 46.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:19:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 155ms (Views: 0.9ms | ActiveRecord: 29.8ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:19:17 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Bottle> at /Users/kellylunghamer/Desktop/wine-o-clock-api/app/models/bottle.rb:3)
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `get_bottle_image' for #<Bottle::ActiveRecord_Associations_CollectionProxy:0x007f9a4bbb6ce0>):
+  
+app/controllers/bottles_controller.rb:38:in `index'
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.1ms)
+Started GET "/users/5/bottles/21" for ::1 at 2016-11-14 14:21:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BottlesController#show as */*
+  Parameters: {"user_id"=>"5", "id"=>"21"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Bottle> at /Users/kellylunghamer/Desktop/wine-o-clock-api/app/models/bottle.rb:3)
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 21], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 163ms (ActiveRecord: 14.5ms)
+
+
+  
+NameError (undefined local variable or method `bottle' for #<Bottle:0x007f8630581020>):
+  
+app/models/bottle.rb:11:in `get_bottle_image'
+app/controllers/bottles_controller.rb:44:in `show'
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (90.2ms)
+Started GET "/users/5/bottles/" for ::1 at 2016-11-14 14:23:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BottlesController#index as */*
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Bottle> at /Users/kellylunghamer/Desktop/wine-o-clock-api/app/models/bottle.rb:3)
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 215ms (Views: 35.7ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/users/5/bottles/21" for ::1 at 2016-11-14 14:23:47 -0500
+Processing by BottlesController#show as */*
+  Parameters: {"user_id"=>"5", "id"=>"21"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.9ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 21], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:29:26 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 102ms (Views: 1.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:29:26 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Bottle> at /Users/kellylunghamer/Desktop/wine-o-clock-api/app/models/bottle.rb:3)
+  [1m[36mBottle Load (0.9ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 100ms (Views: 74.1ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/bottles/results/pinot%20noir%20testarossa" for ::1 at 2016-11-14 14:29:35 -0500
+Processing by BottlesController#search as HTML
+  Parameters: {"search"=>"pinot noir testarossa"}
+Completed 200 OK in 1359ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/5/bottles" for ::1 at 2016-11-14 14:29:36 -0500
+Processing by BottlesController#create as HTML
+  Parameters: {"vintage"=>2003, "vineyard"=>"Testarossa", "red_or_white"=>"Red Wines", "category"=>"Pinot Noir", "retail_price"=>54, "appellation"=>"Central Coast", "region"=>"California", "label"=>"http://cache.wine.com/labels/84633m.jpg", "user_id"=>"5", "bottle"=>{"vintage"=>2003, "vineyard"=>"Testarossa", "red_or_white"=>"Red Wines", "category"=>"Pinot Noir", "retail_price"=>54, "appellation"=>"Central Coast", "region"=>"California", "label"=>"http://cache.wine.com/labels/84633m.jpg"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (153.4ms)[0m  [1m[32mINSERT INTO "bottles" ("vintage", "vineyard", "red_or_white", "category", "retail_price", "appellation", "region", "user_id", "created_at", "updated_at", "label") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["vintage", 2003], ["vineyard", "Testarossa"], ["red_or_white", "Red Wines"], ["category", "Pinot Noir"], ["retail_price", 54], ["appellation", "Central Coast"], ["region", "California"], ["user_id", 5], ["created_at", 2016-11-14 19:29:36 UTC], ["updated_at", 2016-11-14 19:29:36 UTC], ["label", "http://cache.wine.com/labels/84633m.jpg"]]
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 186ms (Views: 1.2ms | ActiveRecord: 174.4ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:31:11 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 79ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:31:12 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 23ms (Views: 17.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/bottles/26" for ::1 at 2016-11-14 14:31:15 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"26"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.3ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 1.6ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:37:51 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 3.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:37:52 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.1ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 30ms (Views: 21.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/5/bottles/26" for ::1 at 2016-11-14 14:37:55 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"26"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.2ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 1.7ms | ActiveRecord: 1.9ms)
+
+
+Started PATCH "/users/5/bottles/26" for ::1 at 2016-11-14 14:41:31 -0500
+Processing by BottlesController#update as HTML
+  Parameters: {"bottle"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f8735908f58 @tempfile=#<Tempfile:/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/RackMultipart20161114-7290-1cjiqcc.JPG>, @original_filename="IMG_0053.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"bottle[image]\"; filename=\"IMG_0053.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "user_id"=>"5", "id"=>"26"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.5ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 26], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' -auto-orient -resize "600x600>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/79951df907ff7454e99c30bc7294aab620161114-7290-1rxp40d'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/79951df907ff7454e99c30bc7294aab620161114-7290-1wxsu54'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' -auto-orient -resize "200x200>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/79951df907ff7454e99c30bc7294aab620161114-7290-8n41c6'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-em3wad.JPG[0]' -auto-orient -resize "200x" -crop "200x200+0+33" +repage '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/79951df907ff7454e99c30bc7294aab620161114-7290-ts9q7o'
+Command :: PATH=/usr/local/bin/identify:$PATH; file -b --mime '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1ue74h.JPG'
+  [1m[35mSQL (66.5ms)[0m  [1m[33mUPDATE "bottles" SET "image_file_name" = $1, "image_content_type" = $2, "image_file_size" = $3, "image_updated_at" = $4, "updated_at" = $5 WHERE "bottles"."id" = $6[0m  [["image_file_name", "IMG_0053.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 1608724], ["image_updated_at", 2016-11-14 19:41:33 UTC], ["updated_at", 2016-11-14 19:41:41 UTC], ["id", 26]]
+[paperclip] saving /bottles/images/000/000/026/original/IMG_0053.JPG
+[AWS S3 200 10.086009 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>1608724,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: IMG_0053.JPG,:key=>"bottles/images/000/000/026/original/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/026/large/IMG_0053.JPG
+[AWS S3 200 1.602784 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>90752,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 79951df907ff7454e99c30bc7294aab620161114-7290-1rxp40d,:key=>"bottles/images/000/000/026/large/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/026/medium/IMG_0053.JPG
+[AWS S3 200 0.372891 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>36144,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 79951df907ff7454e99c30bc7294aab620161114-7290-1wxsu54,:key=>"bottles/images/000/000/026/medium/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/026/thumb/IMG_0053.JPG
+[AWS S3 200 0.296097 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>23705,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 79951df907ff7454e99c30bc7294aab620161114-7290-8n41c6,:key=>"bottles/images/000/000/026/thumb/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/026/square/IMG_0053.JPG
+[AWS S3 200 0.223514 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>26719,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 79951df907ff7454e99c30bc7294aab620161114-7290-ts9q7o,:key=>"bottles/images/000/000/026/square/IMG_0053.JPG")  
+
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 21771ms (Views: 1.2ms | ActiveRecord: 84.9ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:42:19 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 75ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:42:20 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/bottles/26" for ::1 at 2016-11-14 14:42:23 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"26"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:43:15 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 80ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:43:15 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/bottles/26" for ::1 at 2016-11-14 14:43:19 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"26"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:44:21 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 1.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:44:21 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+DEPRECATION WARNING: [paperclip] [deprecation] AWS SDK v1 has been deprecated in paperclip 5. Please consider upgrading to AWS 2 before upgrading paperclip. (called from <class:Bottle> at /Users/kellylunghamer/Desktop/wine-o-clock-api/app/models/bottle.rb:3)
+  [1m[36mBottle Load (2.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 80ms (Views: 52.6ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/users/5/bottles/26" for ::1 at 2016-11-14 14:44:24 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"26"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.1ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 1.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:45:21 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:45:21 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.4ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/bottles/[object%20Object]" for ::1 at 2016-11-14 14:45:24 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"[object Object]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Bottle with 'id'=[object Object] [WHERE "bottles"."user_id" = $1]):
+  
+app/controllers/bottles_controller.rb:42:in `show'
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/kellylunghamer/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1414.4ms)
+Started POST "/users/login" for ::1 at 2016-11-14 14:46:45 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 81ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:46:46 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.5ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/bottles/3" for ::1 at 2016-11-14 14:46:48 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.9ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 1.5ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/users/5/bottles/3" for ::1 at 2016-11-14 14:47:03 -0500
+Processing by BottlesController#update as HTML
+  Parameters: {"bottle"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f8735ba9190 @tempfile=#<Tempfile:/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/RackMultipart20161114-7290-1qgn28w.JPG>, @original_filename="IMG_0053.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"bottle[image]\"; filename=\"IMG_0053.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.1ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+[AWS S3 200 0.71391 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/original/wanderluster.png")  
+
+[AWS S3 200 0.054857 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/large/wanderluster.png")  
+
+[AWS S3 200 0.053833 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/medium/wanderluster.png")  
+
+[AWS S3 200 0.05397 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/thumb/wanderluster.png")  
+
+[AWS S3 200 0.129125 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/square/wanderluster.png")  
+
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' -auto-orient -resize "600x600>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/167a36f6d81b438508b596ddfa94deae20161114-7290-psk57y'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/167a36f6d81b438508b596ddfa94deae20161114-7290-95gyeu'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' -auto-orient -resize "200x200>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/167a36f6d81b438508b596ddfa94deae20161114-7290-622h7n'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-1d4tjwu.JPG[0]' -auto-orient -resize "200x" -crop "200x200+0+33" +repage '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/167a36f6d81b438508b596ddfa94deae20161114-7290-l0b39n'
+Command :: PATH=/usr/local/bin/identify:$PATH; file -b --mime '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/7e7d1b09248ed8fbcd905b3561b2022f20161114-7290-8biobk.JPG'
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "bottles" SET "image_file_name" = $1, "image_content_type" = $2, "image_file_size" = $3, "image_updated_at" = $4, "updated_at" = $5 WHERE "bottles"."id" = $6[0m  [["image_file_name", "IMG_0053.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 1608724], ["image_updated_at", 2016-11-14 19:47:04 UTC], ["updated_at", 2016-11-14 19:47:10 UTC], ["id", 3]]
+[paperclip] deleting /bottles/images/000/000/003/original/wanderluster.png
+[AWS S3 204 0.248046 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/original/wanderluster.png")  
+
+[paperclip] deleting /bottles/images/000/000/003/large/wanderluster.png
+[AWS S3 204 0.151431 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/large/wanderluster.png")  
+
+[paperclip] deleting /bottles/images/000/000/003/medium/wanderluster.png
+[AWS S3 204 0.060511 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/medium/wanderluster.png")  
+
+[paperclip] deleting /bottles/images/000/000/003/thumb/wanderluster.png
+[AWS S3 204 0.067317 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/thumb/wanderluster.png")  
+
+[paperclip] deleting /bottles/images/000/000/003/square/wanderluster.png
+[AWS S3 204 0.077657 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/square/wanderluster.png")  
+
+[paperclip] saving /bottles/images/000/000/003/original/IMG_0053.JPG
+[AWS S3 200 9.092504 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>1608724,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: IMG_0053.JPG,:key=>"bottles/images/000/000/003/original/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/003/large/IMG_0053.JPG
+[AWS S3 200 1.137389 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>90752,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 167a36f6d81b438508b596ddfa94deae20161114-7290-psk57y,:key=>"bottles/images/000/000/003/large/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/003/medium/IMG_0053.JPG
+[AWS S3 200 0.546922 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>36144,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 167a36f6d81b438508b596ddfa94deae20161114-7290-95gyeu,:key=>"bottles/images/000/000/003/medium/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/003/thumb/IMG_0053.JPG
+[AWS S3 200 0.257021 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>23705,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 167a36f6d81b438508b596ddfa94deae20161114-7290-622h7n,:key=>"bottles/images/000/000/003/thumb/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/003/square/IMG_0053.JPG
+[AWS S3 200 0.223305 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>26719,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 167a36f6d81b438508b596ddfa94deae20161114-7290-l0b39n,:key=>"bottles/images/000/000/003/square/IMG_0053.JPG")  
+
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 18870ms (Views: 1.7ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:48:08 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 74ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:48:08 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.5ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 23ms (Views: 18.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/bottles/3" for ::1 at 2016-11-14 14:48:11 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (1.0ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/users/5/bottles/3" for ::1 at 2016-11-14 14:48:26 -0500
+Processing by BottlesController#update as HTML
+  Parameters: {"bottle"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f8734aa1f78 @tempfile=#<Tempfile:/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/RackMultipart20161114-7290-1xpsa17.png>, @original_filename="Screen Shot 2016-11-13 at 7.28.05 PM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"bottle[image]\"; filename=\"Screen Shot 2016-11-13 at 7.28.05 PM.png\"\r\nContent-Type: image/png\r\n">}, "user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.7ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+[AWS S3 200 0.688214 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/original/IMG_0053.JPG")  
+
+[AWS S3 200 0.056825 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/large/IMG_0053.JPG")  
+
+[AWS S3 200 0.056327 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/medium/IMG_0053.JPG")  
+
+[AWS S3 200 0.061078 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/thumb/IMG_0053.JPG")  
+
+[AWS S3 200 0.05524 0 retries] head_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/square/IMG_0053.JPG")  
+
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' -auto-orient -resize "600x600>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/37da0469ebd0c705dbc4fecc63b5420e20161114-7290-14s6oh4'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' -auto-orient -resize "300x300>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/37da0469ebd0c705dbc4fecc63b5420e20161114-7290-yjy19w'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' -auto-orient -resize "200x200>" '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/37da0469ebd0c705dbc4fecc63b5420e20161114-7290-1e1mkty'
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/identify:$PATH; identify -format %m '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]'
+Command :: PATH=/usr/local/bin/identify:$PATH; convert '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/df20911d3d09f852482fc52ea505159b20161114-7290-vcpo45.png[0]' -auto-orient -resize "x200" -crop "200x200+91+0" +repage '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/37da0469ebd0c705dbc4fecc63b5420e20161114-7290-5q7doa'
+Command :: PATH=/usr/local/bin/identify:$PATH; file -b --mime '/var/folders/1f/qv37mx297vl7j6_q9tq9kv6w0000gn/T/47a238a1f539cc2299bcb89cd7d9dcef20161114-7290-1570fsz.png'
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "bottles" SET "image_file_name" = $1, "image_content_type" = $2, "image_file_size" = $3, "image_updated_at" = $4, "updated_at" = $5 WHERE "bottles"."id" = $6[0m  [["image_file_name", "Screen_Shot_2016-11-13_at_7.28.05_PM.png"], ["image_content_type", "image/png"], ["image_file_size", 542743], ["image_updated_at", 2016-11-14 19:48:27 UTC], ["updated_at", 2016-11-14 19:48:28 UTC], ["id", 3]]
+[paperclip] deleting /bottles/images/000/000/003/original/IMG_0053.JPG
+[AWS S3 204 0.062399 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/original/IMG_0053.JPG")  
+
+[paperclip] deleting /bottles/images/000/000/003/large/IMG_0053.JPG
+[AWS S3 204 0.082676 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/large/IMG_0053.JPG")  
+
+[paperclip] deleting /bottles/images/000/000/003/medium/IMG_0053.JPG
+[AWS S3 204 0.060398 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/medium/IMG_0053.JPG")  
+
+[paperclip] deleting /bottles/images/000/000/003/thumb/IMG_0053.JPG
+[AWS S3 204 0.06677 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/thumb/IMG_0053.JPG")  
+
+[paperclip] deleting /bottles/images/000/000/003/square/IMG_0053.JPG
+[AWS S3 204 0.063865 0 retries] delete_object(:bucket_name=>"closets",:key=>"bottles/images/000/000/003/square/IMG_0053.JPG")  
+
+[paperclip] saving /bottles/images/000/000/003/original/Screen_Shot_2016-11-13_at_7.28.05_PM.png
+[AWS S3 200 3.099318 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>542743,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: Screen Shot 2016-11-13 at 7.28.05 PM.png,:key=>"bottles/images/000/000/003/original/Screen_Shot_2016-11-13_at_7.28.05_PM.png")  
+
+[paperclip] saving /bottles/images/000/000/003/large/Screen_Shot_2016-11-13_at_7.28.05_PM.png
+[AWS S3 200 1.003153 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>167082,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 37da0469ebd0c705dbc4fecc63b5420e20161114-7290-14s6oh4,:key=>"bottles/images/000/000/003/large/Screen_Shot_2016-11-13_at_7.28.05_PM.png")  
+
+[paperclip] saving /bottles/images/000/000/003/medium/Screen_Shot_2016-11-13_at_7.28.05_PM.png
+[AWS S3 200 0.434896 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>53908,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 37da0469ebd0c705dbc4fecc63b5420e20161114-7290-yjy19w,:key=>"bottles/images/000/000/003/medium/Screen_Shot_2016-11-13_at_7.28.05_PM.png")  
+
+[paperclip] saving /bottles/images/000/000/003/thumb/Screen_Shot_2016-11-13_at_7.28.05_PM.png
+[AWS S3 200 0.265897 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>29529,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 37da0469ebd0c705dbc4fecc63b5420e20161114-7290-1e1mkty,:key=>"bottles/images/000/000/003/thumb/Screen_Shot_2016-11-13_at_7.28.05_PM.png")  
+
+[paperclip] saving /bottles/images/000/000/003/square/Screen_Shot_2016-11-13_at_7.28.05_PM.png
+[AWS S3 200 0.387948 0 retries] put_object(:acl=>:public_read,:bucket_name=>"closets",:content_length=>49141,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 37da0469ebd0c705dbc4fecc63b5420e20161114-7290-5q7doa,:key=>"bottles/images/000/000/003/square/Screen_Shot_2016-11-13_at_7.28.05_PM.png")  
+
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7928ms (Views: 1.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/5/bottles/3" for ::1 at 2016-11-14 14:48:34 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.9ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/login" for ::1 at 2016-11-14 14:50:39 -0500
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"email"=>"kelly.lunghamer@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kelly.lunghamer@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 4.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/bottles" for ::1 at 2016-11-14 14:50:39 -0500
+Processing by BottlesController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.6ms)[0m  [1m[34mSELECT "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1[0m  [["user_id", 5]]
+Completed 200 OK in 58ms (Views: 47.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/5/bottles/3" for ::1 at 2016-11-14 14:50:43 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (2.0ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 1.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users/5/bottles/26" for ::1 at 2016-11-14 14:50:49 -0500
+Processing by BottlesController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"26"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mBottle Load (0.8ms)[0m  [1m[34mSELECT  "bottles".* FROM "bottles" WHERE "bottles"."user_id" = $1 AND "bottles"."id" = $2 LIMIT $3[0m  [["user_id", 5], ["id", 26], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.2ms)
+
+

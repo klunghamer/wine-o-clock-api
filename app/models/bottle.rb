@@ -6,10 +6,6 @@ class Bottle < ApplicationRecord
     thumb: '200x200>',
     square: '200x200#'
   }
-
-  # def get_bottle_label
-  #   {source: bottle.image.url(:large)}
-  # end
-
+  
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 end

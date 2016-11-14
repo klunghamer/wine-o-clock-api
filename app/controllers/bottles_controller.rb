@@ -41,7 +41,7 @@ class BottlesController < ApplicationController
   def show
     bottle = @user.bottles.find(params[:id])
 
-    render json: {status: 200, bottle: bottle}
+    render json: {status: 200, bottle: bottle, image: bottle.image.url(:medium)}
   end
 
   def update
