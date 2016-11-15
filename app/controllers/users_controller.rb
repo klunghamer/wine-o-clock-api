@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(pass_params)
+    if @user.update(user_params)
       render json: {status: 200, user: @user}
     else
       render json: {status: 204, message: @user.errors}
@@ -64,8 +64,8 @@ class UsersController < ApplicationController
     params.required(:user).permit(:first_name, :last_name, :email, :password)
   end
 
-  def pass_params
-    params.required(:user).permit(:password, :email)
-  end
+  # def pass_params
+  #   params.required(:user).permit(:password, :email)
+  # end
 
 end
