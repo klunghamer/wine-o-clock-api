@@ -35,6 +35,11 @@ class BottlesController < ApplicationController
   def index
     bottles = @user.bottles
 
+    # @images = []
+    # bottles.each_with_index do |bottle, index|
+    #   @images.push({image: bottle.image.url(:thumb), index: index})
+    # end
+
     render json: {status: 200, bottles: bottles}
   end
 
